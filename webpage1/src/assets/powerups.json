@@ -1,0 +1,136 @@
+[
+    {
+      "id": 1,
+      "title": "Fire Flower",
+      "description": "The Fire Flower power-up grants the ability to throw fireballs. These fireballs can be launched in quick succession and defeat most enemies upon contact. The ability allows for ranged attacks, making it useful for clearing obstacles or enemies at a distance.",
+      "src": "../images/fireflower",
+      "price": 50
+    },
+    {
+      "id": 2,
+      "title": "Super Mushroom",
+      "description": "The Super Mushroom is a power-up that increases size and grants an extra hit point. When obtained, it makes the character grow larger, allowing them to take an additional hit before losing a life. It also enables access to certain areas or actions that require the character to be in a larger form.",
+      "src": "../images/supermushroom",
+      "price": 30
+    },
+    {
+        "id": 3,
+        "title": "Super Star",
+        "description": "The Super Star is a power-up that grants temporary invincibility. When obtained, the character becomes immune to damage from enemies, allowing them to pass through obstacles and defeat enemies by simply touching them. This effect lasts for a limited time.",
+        "src": "../images/superstar",
+        "price": 70
+    },
+    {
+        "id": 4,
+        "title": "Frog Suit",
+        "description": "The Frog Suit is a power-up that enhances swimming abilities and improves movement on land. When worn, it allows the character to swim more easily and faster underwater, while also providing better control and higher jumping ability on land. It typically makes the character more agile in water but less effective on land compared to other suits.",
+        "src": "../images/frogsuit",
+        "price": 60
+    },
+    {
+        "id": 5,
+        "title": "Lakitu's Cloud",
+        "description": "The Lakitus Cloud is a power-up that allows the character to ride on a cloud, providing the ability to fly or move across the screen. While on the cloud, the character can avoid ground-based obstacles and enemies, but the cloud can be temporarily lost if it is hit. This power-up often allows access to higher platforms or shortcuts.",
+        "src": "../images/lakituscloud",
+        "price": 80
+    },
+    {
+        "id": 6,
+        "title": "Super Leaf",
+        "description": "The Super Leaf is a power-up that transforms the character into a raccoon-like form, granting the ability to fly briefly and perform a tail swipe attack. The character gains a tail that can be used to defeat enemies, and the ability to float or glide in the air for a short distance, helping to reach higher areas or avoid obstacles.",
+        "src": "../images/superleaf",
+        "price": 40
+    },
+    {
+        "id": 7,
+        "title": "Green Shell",
+        "description": "The Green Shell is a throwable item that can be used as a projectile. When thrown, it bounces off walls and obstacles, traveling in a straight line until it hits something or falls off the edge. It can be used to defeat enemies or trigger events when directed properly.",
+        "src": "../images/greenshell",
+        "price": 20
+    },
+    {
+        "id": 8,
+        "title": "Blue Shell",
+        "description": "The Blue Shell is a powerful item that targets the leading enemy or character. When activated, it homes in on the front-runner, usually causing them to be hit and temporarily knocked out of their position. It is often used in racing contexts to disrupt the progress of the leading player, making it a game-changing item in competitive scenarios.",
+        "src": "../images/blueshell",
+        "price": 100
+    },
+    {
+        "id": 9,
+        "title": "Tanooki Suit",
+        "description": "The Tanooki Suit is a power-up that transforms the character into a tanuki, granting the ability to fly and turn into a statue. In its raccoon form, the character can float or glide in the air for a short distance, similar to the Super Leaf power-up. Additionally, the character can transform into a statue to avoid damage or trigger events.",
+        "src": "../images/tanookisuit",
+        "price": 90
+    },
+    {
+        "id": 10,
+        "title": "Cape Feather",
+        "description": "The Cape Feather is a power-up that grants the character the ability to fly and perform a spin attack. When used, the character can glide through the air, gaining altitude and covering long distances. The spin attack can defeat enemies and break blocks, making it a versatile power-up for exploration and combat.",
+        "src": "../images/capefeather",
+        "price": 75
+    },
+    {
+        "id": 11,
+        "title": "P-Wing",
+        "description": "The P-Wing is a power-up that grants unlimited flight for a single level. When used, the character can fly through the entire level without limitations, allowing them to bypass obstacles and enemies. This power-up is often used as a shortcut or to access hidden areas, making it a valuable asset for completing challenging levels.",
+        "src": "../images/pwing",
+        "price": 120
+    },
+    {
+        "id": 12,
+        "title": "Hammer Suit",
+        "description": "The Hammer Suit is a power-up that grants the character the ability to throw hammers and resist fire-based attacks. When worn, the character can throw hammers at enemies, defeating them from a distance. Additionally, the suit provides protection against fire-based attacks, making the character immune to certain hazards.",
+        "src": "../images/hammersuit",
+        "price": 85
+    },
+    {
+        "id": 13,
+        "title": "Boomerang Flower",
+        "description": "The Boomerang Flower is a power-up that grants the ability to throw boomerangs. These boomerangs can be launched in an arc, returning to the character after hitting an obstacle or enemy. The ability allows for ranged attacks and can be used to collect items or defeat enemies from a distance.",
+        "src": "../images/boomerangflower",
+        "price": 50
+    },
+    {
+        "id": 14,
+        "title": "Ice Flower",
+        "description": "The Ice Flower is a power-up that grants the ability to throw ice balls. These ice balls can freeze enemies upon contact, turning them into ice blocks that can be used as platforms or thrown as projectiles. The ability allows for ranged attacks and can be used to create new paths or solve puzzles.",
+        "src": "../images/iceflower",
+        "price": 60
+    },
+    {
+        "id": 15,
+        "title": "Propeller Mushroom",
+        "description": "The Propeller Mushroom is a power-up that grants the ability to propel the character into the air. When used, the character spins rapidly and ascends into the air, reaching higher platforms or areas that are otherwise inaccessible. The ability can be used to avoid obstacles or enemies and explore hidden areas.",
+        "src": "../images/propellermushroom",
+        "price": 65
+    },
+    {
+        "id": 16,
+        "title": "Mega Mushroom",
+        "description": "The Mega Mushroom is a power-up that grants temporary invincibility and the ability to grow to a massive size. When obtained, the character becomes immune to damage from enemies and can destroy obstacles or enemies by simply touching them. The character's increased size allows them to break blocks and access new areas.",
+        "src": "../images/megamushroom",
+        "price": 110
+    },
+    {
+        "id": 17,
+        "title": "Mini Mushroom",
+        "description": "The Mini Mushroom is a power-up that shrinks the character to a tiny size. When obtained, the character becomes smaller and lighter, allowing them to run on water, fit through small gaps, and jump higher. The reduced size also makes the character more vulnerable to damage, but provides access to hidden areas and shortcuts.",
+        "src": "../images/minimushroom",
+        "price": 25
+    },
+    {
+        "id": 18,
+        "title": "Gold Flower",
+        "description": "The Gold Flower is a power-up that grants the ability to throw gold fireballs. These fireballs can defeat most enemies upon contact and turn them into coins. The ability allows for ranged attacks and can be used to collect coins or defeat enemies while earning additional rewards.",
+        "src": "../images/goldflower",
+        "price": 150
+    },
+    {
+        "id": 19,
+        "title": "Double Cherry",
+        "description": "The Double Cherry is a power-up that creates a duplicate of the character. When obtained, the character gains an identical clone that mimics their movements and actions. The clone can be used to solve puzzles, trigger events, or defeat enemies, providing additional support and versatility in gameplay.",
+        "src": "../images/doublecherry",
+        "price": 95
+    }
+  ]
+  

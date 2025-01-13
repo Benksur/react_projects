@@ -1,0 +1,30 @@
+.news {
+    width: 1600px;
+    margin-bottom: 30px;
+    display: flex;
+    border-top: 1px solid rgb(254, 82, 34);
+    padding: 20px; 
+}
+
+.news-img img {
+    width: 700px; 
+    height: 500px; 
+    object-fit: contain;
+}
+
+.news-text {
+
+    color: rgb(254, 82, 34);
+}
+
+.news-text h1 {
+    font-size: 19px;
+    font-style: normal;
+    margin-bottom: 40px;
+    margin-left: 5px;;
+}
+
+.news-text p {
+    margin: 0; 
+    font-size: 12px; 
+}

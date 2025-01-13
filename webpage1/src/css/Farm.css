@@ -1,0 +1,50 @@
+.farm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    cursor: pointer; 
+  }
+  
+  .coin-container {
+    position: relative;
+  }
+
+  .coin-container i {
+    opacity: 0; 
+    transition: opacity 0.1s ease-in-out;
+  }
+  
+  .coin-container .visible {
+    opacity: 1; 
+  }
+  .block-container {
+    position: relative;
+    margin-top: 100px;
+  }
+
+  .question-block.clicked {
+    animation: bounce 0.3s ease-out; 
+  }
+  
+  .question-block {
+    width: 400px; 
+    height: 400px;
+    animation: none; 
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0) scale(1); 
+    }
+    30% {
+      transform: translateY(-120px) scale(0.85);
+    }
+    50% {
+      transform: translateY(-60px) scale(0.85); 
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }

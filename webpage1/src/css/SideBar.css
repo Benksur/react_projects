@@ -1,0 +1,41 @@
+.sidebar {
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+}
+
+.sidebar-brand {
+  font-size: 15px;
+  color: rgb(254, 82, 34);
+  margin-bottom: 20px;
+}
+
+.sidebar-link-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.sidebar-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin-right: 10px;
+  margin-left: 30px;
+  color: rgb(254, 82, 34);
+  text-decoration: none;
+}
+
+.sidebar-link {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin-right: 10px;
+  margin-left: 30px;
+  color: rgb(254, 82, 34);
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  color: rgb(161, 161, 161);
+}

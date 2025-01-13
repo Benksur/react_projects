@@ -1,0 +1,47 @@
+.featured {
+    width: 1600px;
+    display: flex;
+    border-top: 1px solid rgb(254, 82, 34);
+    padding: 20px; 
+}
+
+.featured-img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 20px; 
+}
+
+.featured-img img {
+    width: 700px; 
+    height: 500px; 
+    object-fit: contain;
+}
+
+  
+.featured-text {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    color: rgb(254, 82, 34);
+}
+
+.featured-text h1 {
+    font-size: 22px;
+    font-style: normal;
+    margin-bottom: 40px;
+    margin-left: 5px;;
+}
+
+.featured-text p {
+    margin: 0;
+    font-size: 18px;
+     
+}
+
+.featured:hover p {
+    color: rgb(161, 161, 161);
+}
+
+.featured:hover h1 {
+    color: rgb(161, 161, 161);
+}

@@ -1,0 +1,47 @@
+.shop-tile {
+  padding: 20px;
+  border: 2px solid #ff0000;
+  width: 300px; 
+  height: 350px;
+  margin: 10px; 
+  position: relative;
+  overflow: hidden; 
+  color: rgb(254, 82, 34);
+  margin-right: 40px;
+}
+
+.shop-tile:hover {
+    color: rgb(161, 161, 161);
+}
+
+.shop-tile-image {
+    margin-left: 30px;
+  width: 200px; 
+  height: 200px; 
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.shop-tile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; 
+}
+
+.shop-tile-title {
+  font-size: 20px; 
+  font-weight: bold;
+  margin: 0;
+}
+
+.shop-tile-price {
+    display: flex; 
+  align-items: center; 
+  font-size: 18px; 
+  gap: 5px; 
+}
+
+.shop-tile:hover .shop-tile-image {
+  transform: scale(1.1);
+}
