@@ -1,8 +1,11 @@
 .featured {
-    width: 1600px;
+    width: 100%;  /* Use full width of the container */
+    max-width: 1600px;  /* Limit max width to 1600px */
     display: flex;
     border-top: 1px solid rgb(254, 82, 34);
     padding: 20px; 
+    box-sizing: border-box;  /* Include padding and borders in the width calculation */
+    overflow: hidden;  /* Prevent overflow */
 }
 
 .featured-img {
@@ -15,27 +18,29 @@
     width: 700px; 
     height: 500px; 
     object-fit: contain;
+    max-width: 100%;  /* Ensure image scales properly within its container */
 }
 
-  
 .featured-text {
     display: flex;
     flex-direction: column; 
     justify-content: center;
     color: rgb(254, 82, 34);
+    flex: 1;  /* Allow text to take up the remaining space */
+    word-wrap: break-word;  /* Prevent text from overflowing */
+    overflow-wrap: break-word;  /* Add another layer of safety for word wrapping */
 }
 
 .featured-text h1 {
     font-size: 22px;
     font-style: normal;
     margin-bottom: 40px;
-    margin-left: 5px;;
+    margin-left: 5px;
 }
 
 .featured-text p {
     margin: 0;
     font-size: 18px;
-     
 }
 
 .featured:hover p {
