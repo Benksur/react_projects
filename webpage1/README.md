@@ -1,6 +1,6 @@
 # powerup.plaza
 
-This is my first React-based project just so I could get a feel for its features. This page is basically just a shop UI where you can farm currency and buy powerups to add to your collection.
+This is my first React-based project just so I could get a feel for its features. This page is basically just a shop UI where you can farm currency and buy powerups to add to your collection. I also coded the layout to fit the aspect ratio of my monitor only so it might look janky on other aspect ratios.
 
 ![powerup](https://github.com/user-attachments/assets/0345e21f-9a76-4f32-88b8-c6bde3712a0e)
 ---
