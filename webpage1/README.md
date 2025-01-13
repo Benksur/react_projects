@@ -1,12 +1,25 @@
 ## powerup.plaza
 
-This is a React-based web application where users can browse and purchase powerups from a virtual shop. The shop displays a list of available powerups, which can be filtered using a search bar at the top. Users can view details about each powerup in a dialog box, confirm purchases, and add powerups to their collection.
+This is my first React-based project just so I could get a feel for its features. This page is basically just a shop UI where you can farm currency and buy powerups to add to your collection.
+
+![powerup](https://github.com/user-attachments/assets/0345e21f-9a76-4f32-88b8-c6bde3712a0e)
+
+
 
 ### Features:
 - Search for powerups by title.
 - View powerup details and prices.
 - Purchase powerups if the user has enough coins.
 - Add purchased powerups to the user's collection.
+
+### Methods Utilised:
+- Effects
+- States
+- Contexts
+- Maps
+- Filtering
+- Dialogs
+
 
 ### To get started:
 1. Clone this repo, then run:
@@ -15,3 +28,4 @@ This is a React-based web application where users can browse and purchase poweru
 
 You may also need to run:
    ### `npm install react-router-dom`
+
