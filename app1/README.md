@@ -17,13 +17,13 @@
 - API fetches for currency data
 ---
 ### To get started:
-   ### `npx expo install`
+   ### `npx expo install` or `yarn add expo`
    ### Install dependencies
    - @react-navigation/native
    - @react-navigation/stack
    - expo-font
-   ### `npm run`
-   ### Scan QR code on output to view on mobile
+   ### `npx expo start`
+   ### Download Expo Go and Scan QR code on output to view on mobile
 ---
 ### References
 Used Cryptocurrency Mobile App Design Concept UI as layout. https://dribbble.com/shots/23563940-Cryptocurrency-Mobile-App-Design-Concept
