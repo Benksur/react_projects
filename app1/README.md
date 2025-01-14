@@ -3,6 +3,8 @@
 ### React Features Used
 - `useState`
 - `useEffect`
+- `Context`
+- `Stack`
 - `useNavigation`
 - `FlatList`
 
