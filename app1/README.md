@@ -1,5 +1,8 @@
 # Currency Converter Utility App
 
+![ScreenRecording_01-14-2025 20-16-27_1](https://github.com/user-attachments/assets/7aafa6bc-e482-44a2-90d0-d0fee69c4ee6)
+
+
 ---
 ### React Features Used
 - `useState`
