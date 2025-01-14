@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet, Image } from "react-native";
 import { useFonts } from "expo-font";
 
 export default function SelectLocal() {
@@ -13,9 +13,14 @@ export default function SelectLocal() {
   return (
     <View style={styles.whiteContainer}>
       <Text style={styles.text}>
-        Choose your local currency to explore favorable exchange rates.
+        Examine the trends in exchange rates to determine the best time to buy.
       </Text>
-      <View style={styles.circleContainer}></View>
+      <View style={styles.circleContainer}>
+        <Image
+          source={require("../../assets/icons/timeline.png")}
+          style={styles.circleImage}
+        />
+      </View>
     </View>
   );
 }
@@ -48,6 +53,12 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: "#172429",
+    backgroundColor: "#fff",
+    overflow: "hidden",
+  },
+  circleImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
 });

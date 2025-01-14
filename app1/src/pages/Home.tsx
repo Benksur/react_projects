@@ -6,7 +6,7 @@ import { StyleSheet, View, ImageBackground, Text } from "react-native";
 export default function Home({ navigation }: { navigation: any }) {
   return (
     <ImageBackground
-      source={require("../../assets/background/gradient (3).png")}
+      source={require("../../assets/background/gradient (4).png")}
       style={styles.container}
       resizeMode="stretch"
     >

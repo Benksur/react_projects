@@ -22,7 +22,7 @@ type CurrencyData = { [key: string]: string };
 type FlagMapping = { [key: string]: string };
 
 export default function Searchbar({ route }: { route: any }) {
-    const { setFromCurrency, setToCurrency } = useCurrency();
+  const { setFromCurrency, setToCurrency } = useCurrency();
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
@@ -67,12 +67,12 @@ export default function Searchbar({ route }: { route: any }) {
 
   const handleSelectCurrency = (currency: Currency) => {
     if (route.params.button === "From") {
-        setFromCurrency(currency);
-      } else if (route.params.button === "To") {
-        setToCurrency(currency);
-      }
-      console.log("Selected Currency:", currency); // For testing
-      navigation.goBack(); // Go back after selecting
+      setFromCurrency(currency);
+    } else if (route.params.button === "To") {
+      setToCurrency(currency);
+    }
+    console.log("Selected Currency:", currency); // For testing
+    navigation.goBack(); // Go back after selecting
   };
 
   if (!fontsLoaded) {
@@ -184,7 +184,6 @@ const styles = StyleSheet.create({
     width: 60,
     top: 50,
     left: 20,
-
   },
   backButtonText: {
     fontSize: 30,

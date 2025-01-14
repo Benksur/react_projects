@@ -123,10 +123,9 @@ export default function CurrencyConverter({ navigation }: { navigation: any }) {
             </TouchableOpacity>
           </View>
 
-          {/* Clickable icon with the same styling as the buttons */}
           <TouchableOpacity
-            style={styles.buttonBubble} // Apply same styling as button
-            onPress={handleSwapPress} // Trigger swap when clicked
+            style={styles.buttonBubble}
+            onPress={handleSwapPress}
           >
             <Image
               source={require("../../assets/icons/convert.png")}
@@ -159,7 +158,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#071216",
+    backgroundColor: "#071214",
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
   },
@@ -174,8 +173,8 @@ const styles = StyleSheet.create({
   },
   buttonBubble: {
     backgroundColor: "#172429",
-    borderRadius: 50, // Half of width/height for circle
-    width: 80, // Same width and height for a perfect circle
+    borderRadius: 50,
+    width: 80,
     height: 80,
     justifyContent: "center",
     alignItems: "center",
@@ -223,7 +222,7 @@ const styles = StyleSheet.create({
     fontFamily: "Rubik-Regular",
   },
   cents: {
-    fontFamily: "Rubik-Light", // Light for cents
+    fontFamily: "Rubik-Light",
   },
   dollarDenomination: {
     fontSize: 20,
