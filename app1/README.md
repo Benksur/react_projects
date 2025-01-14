@@ -1,5 +1,6 @@
 # Currency Converter Utility App
 
+---
 ### React Features Used
 - `useState`
 - `useEffect`
@@ -11,7 +12,7 @@
 ### Other methods demonstrated
 - Typescript
 - API fetches for currency data
-  
+---
 ### To get started:
    ### `npx expo install`
    ### Install dependencies
@@ -20,4 +21,6 @@
    - expo-font
    ### `npm run`
    ### Scan QR code on output to view on mobile
-
+---
+### References
+Used Cryptocurrency Mobile App Design Concept UI as layout. https://dribbble.com/shots/23563940-Cryptocurrency-Mobile-App-Design-Concept
