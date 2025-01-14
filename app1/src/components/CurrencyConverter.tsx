@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -24,11 +24,49 @@ export default function CurrencyConverter({ navigation }: { navigation: any }) {
     "Rubik-Black": require("../../assets/fonts/Rubik-Black.ttf"),
   });
 
-  const [selectedButton, setSelectedButton] = useState<ButtonType>(null);
   const [text, setText] = useState("");
+  const [conversionAmount, setConversionAmount] = useState(0);
+  const [exchangeRate, setExchangeRate] = useState<number | null>(null);
+
+  const fetchExchangeRate = async () => {
+    if (fromCurrency && toCurrency) {
+      try {
+        const response = await fetch(
+          `https://open.er-api.com/v6/latest/${fromCurrency.abbreviation}`
+        );
+        const data = await response.json();
+        const rate = data.rates[toCurrency.abbreviation];
+        setExchangeRate(rate);
+      } catch (error) {
+        console.error("Error fetching exchange rate:", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchExchangeRate();
+  }, [fromCurrency, toCurrency]);
+
+  const convertAmount = (amount: number) => {
+    if (exchangeRate) {
+      return amount * exchangeRate;
+    }
+    return 0;
+  };
+
+  useEffect(() => {
+    if (text) {
+      const amount = parseFloat(text);
+      if (!isNaN(amount) && exchangeRate) {
+        const converted = convertAmount(amount);
+        setConversionAmount(converted);
+      }
+    } else {
+      setConversionAmount(0);
+    }
+  }, [text, exchangeRate]);
 
   const handleButtonPress = (button: ButtonType) => {
-    setSelectedButton(button);
     if (button === "From") {
       navigation.navigate("Searchbar", { button: "From" });
     } else if (button === "To") {
@@ -45,7 +83,6 @@ export default function CurrencyConverter({ navigation }: { navigation: any }) {
     return null;
   }
 
-  const conversionAmount = 126.59; 
   const [wholeNumber, cents] = conversionAmount.toFixed(2).split(".");
 
   return (
@@ -53,11 +90,14 @@ export default function CurrencyConverter({ navigation }: { navigation: any }) {
       <View style={styles.container}>
         <Text style={styles.titleText}>Currency Convert</Text>
         <Text style={styles.conversionText}>
-          <Text style={styles.dollarSign}>$</Text>
           <Text style={styles.wholeNumber}>{wholeNumber}</Text>
           <Text style={styles.cents}>
             {`.`}
             {cents}
+          </Text>
+          <Text style={styles.dollarDenomination}>
+            {" "}
+            {toCurrency?.abbreviation}
           </Text>
         </Text>
 
@@ -107,7 +147,7 @@ export default function CurrencyConverter({ navigation }: { navigation: any }) {
         </View>
 
         <Text style={styles.placeholderText}>
-          1 {`${fromCurrency?.abbreviation}`} = 20{" "}
+          1 {`${fromCurrency?.abbreviation}`} = {`${exchangeRate}`}{" "}
           {`${toCurrency?.abbreviation}`}
         </Text>
       </View>
@@ -179,14 +219,15 @@ const styles = StyleSheet.create({
     fontFamily: "Rubik-Regular",
     alignSelf: "flex-start",
   },
-  dollarSign: {
-    fontFamily: "Rubik-Regular",
-  },
   wholeNumber: {
     fontFamily: "Rubik-Regular",
   },
   cents: {
     fontFamily: "Rubik-Light", // Light for cents
+  },
+  dollarDenomination: {
+    fontSize: 20,
+    fontFamily: "Rubik-Light",
   },
   textInput: {
     width: 320,
