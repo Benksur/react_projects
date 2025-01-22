@@ -32,13 +32,13 @@ A React Native mobile application for managing, browsing, and saving recipes. Fe
 ## Getting Started
 
 1. **Installation**
-npx expo install
+`npx expo install`
 
 2. **Install Dependencies**
-npm install @react-navigation/native @react-navigation/stack expo-font expo-image-picker
+`npm install @react-navigation/native @react-navigation/stack expo-font expo-image-picker`
 
 3. **Start Development Server**
-npx expo start
+`npx expo start`
 
 4. **Run on Device**
    * Download Expo Go app
