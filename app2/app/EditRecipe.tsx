@@ -15,21 +15,41 @@ import * as ImagePicker from "expo-image-picker";
 import { useRecipes } from "@/app/context/RecipeContext";
 import { useLocalSearchParams, useRouter } from "expo-router";
 
+/**
+ * Screen component for editing existing recipes.
+ * Allows modification of recipe details including name, image, ingredients, and instructions.
+ * @module EditRecipe
+ */
 export default function EditRecipe() {
+  /** URL parameters containing recipe ID */
   const { id } = useLocalSearchParams();
+  /** Router hook for navigation */
   const router = useRouter();
+  /** Recipe context hooks for accessing and updating recipes */
   const { recipes, updateRecipe } = useRecipes();
+  /** Current recipe being edited */
   const recipe = recipes[Number(id)];
+  /** Color scheme for theme-based styling */
   const colorScheme = useColorScheme();
+  /** Styles based on current color scheme */
   const styles = colorScheme === "dark" ? darkStyles : lightStyles;
 
+  /** State for selected image URI */
   const [selectedImage, setSelectedImage] = useState<string | null>(
     recipe.selectedImage
   );
+  /** State for ingredients list */
   const [ingredients, setIngredients] = useState(recipe.ingredients);
+  /** State for cooking instructions */
   const [instructions, setInstructions] = useState(recipe.instructions);
+  /** State for recipe name */
   const [recipeName, setRecipeName] = useState(recipe.name);
 
+  /**
+   * Handles image selection from device gallery.
+   * Requests permissions and opens image picker.
+   * Updates selectedImage state with chosen image URI.
+   */
   const handleImagePick = async () => {
     const permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -48,6 +68,10 @@ export default function EditRecipe() {
     }
   };
 
+  /**
+   * Saves the updated recipe and navigates back.
+   * Updates recipe in context with modified values.
+   */
   const handleSaveRecipe = () => {
     updateRecipe(Number(id), {
       name: recipeName,
@@ -58,6 +82,11 @@ export default function EditRecipe() {
     router.back();
   };
 
+  /**
+   * Formats ingredients input with bullet points.
+   * Adds bullet points to new lines automatically.
+   * @param text - Raw ingredients input
+   */
   const handleIngredientsChange = (text: string) => {
     // check if the input text contains newline characters
     const updatedText = text
@@ -132,6 +161,10 @@ export default function EditRecipe() {
   );
 }
 
+/**
+ * Light theme styles for the edit recipe screen.
+ * @constant lightStyles
+ */
 const lightStyles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
@@ -194,6 +227,10 @@ const lightStyles = StyleSheet.create({
   },
 });
 
+/**
+ * Dark theme styles for the edit recipe screen.
+ * @constant darkStyles
+ */
 const darkStyles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,

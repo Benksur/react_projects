@@ -14,17 +14,30 @@ import { useNavigation } from "@react-navigation/native";
 import { RecipeHeader } from "@/components/recipe/RecipeHeader";
 import { RecipeContent } from "@/components/recipe/RecipeContent";
 
+/**
+ * Screen component for displaying saved recipes.
+ * Allows users to view and edit their saved recipes.
+ * @module RecipeDetails
+ */
 export default function RecipeDetails() {
+  /** URL parameters containing recipe ID */
   const { id } = useLocalSearchParams();
+  /** Recipe context for accessing saved recipes */
   const { recipes } = useRecipes();
+  /** Theme colors for styling */
+  const { colors } = useTheme();
+  /** Navigation hook for header customization */
+  const navigation = useNavigation();
   const colorScheme = useColorScheme();
   const styles = colorScheme === "dark" ? darkStyles : lightStyles;
-  const navigation = useNavigation();
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { colors } = useTheme();
 
+  /**
+   * Loads recipe data from saved recipes.
+   * Sets error state if recipe is not found.
+   */
   useEffect(() => {
     const savedRecipe =
       recipes.find((r) => String(r.id) === String(id)) || recipes[Number(id)];
@@ -36,6 +49,10 @@ export default function RecipeDetails() {
     setIsLoading(false);
   }, [id, recipes]);
 
+  /**
+   * Sets up the header right button with edit functionality.
+   * Updates when recipe or theme changes.
+   */
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (

@@ -18,22 +18,44 @@ import { useRecipes } from "@/app/context/RecipeContext";
 import { FontAwesome } from "@expo/vector-icons";
 import { useTheme } from "@react-navigation/native";
 
+/**
+ * Screen component for managing saved recipes.
+ * Features search, delete functionality, and recipe cards.
+ * @module SavedScreen
+ */
 export default function TabOneScreen() {
+  /** Color scheme for theme-based styling */
   const colorScheme = useColorScheme();
+  /** Styles based on current color scheme */
   const styles = colorScheme === "dark" ? darkStyles : lightStyles;
+  /** Recipe context hooks for managing saved recipes */
   const { recipes, deleteMultipleRecipes } = useRecipes();
+  /** State for search query input */
   const [searchQuery, setSearchQuery] = useState("");
+  /** State for delete mode toggle */
   const [isDeleteMode, setIsDeleteMode] = useState(false);
+  /** State for tracking selected recipes for deletion */
   const [selectedRecipes, setSelectedRecipes] = useState<number[]>([]);
+  /** Navigation hook for header customization */
   const navigation = useNavigation();
+  /** Theme colors for styling */
   const { colors } = useTheme();
 
+  /**
+   * Memoized filtered recipes based on search query.
+   * Filters recipes by name, case-insensitive.
+   */
   const filteredRecipes = useMemo(() => {
     return recipes.filter((recipe) =>
       recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [recipes, searchQuery]);
 
+  /**
+   * Handles batch deletion of selected recipes.
+   * Shows confirmation dialog before deleting.
+   * Resets delete mode and selection after deletion.
+   */
   const handleDelete = () => {
     Alert.alert(
       "Delete Recipe",
@@ -58,6 +80,10 @@ export default function TabOneScreen() {
     );
   };
 
+  /**
+   * Sets up the header right buttons for delete functionality.
+   * Shows Cancel/Delete buttons in delete mode, trash icon otherwise.
+   */
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -91,11 +117,7 @@ export default function TabOneScreen() {
               onPress={() => setIsDeleteMode(true)}
               style={{ marginRight: 15 }}
             >
-              <FontAwesome
-                name="trash"
-                size={24}
-                color={colors.text}
-              />
+              <FontAwesome name="trash" size={24} color={colors.text} />
             </TouchableOpacity>
           )}
         </View>
@@ -176,6 +198,10 @@ export default function TabOneScreen() {
   );
 }
 
+/**
+ * Light theme styles for the saved recipes screen.
+ * @constant lightStyles
+ */
 const lightStyles = StyleSheet.create({
   container: {
     flex: 1,
@@ -242,6 +268,10 @@ const lightStyles = StyleSheet.create({
   },
 });
 
+/**
+ * Dark theme styles for the saved recipes screen.
+ * @constant darkStyles
+ */
 const darkStyles = StyleSheet.create({
   container: {
     flex: 1,

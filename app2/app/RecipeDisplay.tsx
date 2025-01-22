@@ -15,23 +15,42 @@ import { useTheme } from "@react-navigation/native";
 import { RecipeHeader } from "@/components/recipe/RecipeHeader";
 import { RecipeContent } from "@/components/recipe/RecipeContent";
 
+/**
+ * Screen component for displaying recipes from the API.
+ * Allows users to view and save recipes from external sources.
+ * @module RecipeDisplay
+ */
 export default function RecipeDisplay() {
   console.log("RecipeDisplay mounted");
+  /** Recipe ID from URL parameters */
   const params = useLocalSearchParams();
   const id = params.id;
   console.log("Received ID:", id);
 
+  /** Context hooks for recipe management */
   const { recipes, addRecipe } = useRecipes();
-  const colorScheme = useColorScheme();
+  /** Navigation hook for header customization */
   const navigation = useNavigation();
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [isSaved, setIsSaved] = useState(false);
+  /** Theme colors for styling */
   const { colors } = useTheme();
+  /** Color scheme for conditional styling */
+  const colorScheme = useColorScheme();
+  /** State management */
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
+  /** Loading state indicator */
+  const [isLoading, setIsLoading] = useState(true);
+  /** Error message state */
+  const [error, setError] = useState<string | null>(null);
+  /** Flag indicating if recipe is saved */
+  const [isSaved, setIsSaved] = useState(false);
 
+  /** Styles based on color scheme */
   const styles = colorScheme === "dark" ? darkStyles : lightStyles;
 
+  /**
+   * Fetches recipe data from the API.
+   * Updates recipe state and checks if it's already saved.
+   */
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
@@ -69,6 +88,10 @@ export default function RecipeDisplay() {
     fetchRecipe();
   }, [id, recipes]);
 
+  /**
+   * Handles saving a recipe to the user's collection.
+   * Only saves if recipe exists and isn't already saved.
+   */
   const handleSave = () => {
     if (recipe && !isSaved) {
       addRecipe(recipe);
@@ -76,6 +99,10 @@ export default function RecipeDisplay() {
     }
   };
 
+  /**
+   * Sets up the header right button with save functionality.
+   * Updates when save status or theme changes.
+   */
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -110,6 +137,10 @@ export default function RecipeDisplay() {
   return <RecipeContent recipe={recipe} styles={styles} />;
 }
 
+/**
+ * Light theme styles for the recipe display.
+ * @constant lightStyles
+ */
 const lightStyles = StyleSheet.create({
   container: {
     flex: 1,
@@ -150,6 +181,10 @@ const lightStyles = StyleSheet.create({
   },
 });
 
+/**
+ * Dark theme styles for the recipe display.
+ * @constant darkStyles
+ */
 const darkStyles = StyleSheet.create({
   container: {
     flex: 1,

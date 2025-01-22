@@ -1,19 +1,46 @@
 import { Recipe } from "../types/Recipe";
 
+/**
+ * Service for interacting with TheMealDB API.
+ * Provides functions for fetching and searching recipes.
+ * @module mealDbApi
+ */
+
+/** Base URL for TheMealDB API */
 const BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
 
+/** 
+ * Interface for raw recipe data from MealDB API.
+ * @interface MealDBResponse
+ */
 interface MealDBResponse {
+  /** Unique identifier for the meal */
   idMeal: string;
+  /** Name of the meal */
   strMeal: string;
+  /** URL to meal's thumbnail image */
   strMealThumb: string;
+  /** Cooking instructions */
   strInstructions: string;
+  /** Dynamic properties for ingredients and measures */
   [key: string]: string | null;
 }
 
+/** 
+ * Extended Recipe interface with required ID field.
+ * @interface MealDBRecipe
+ * @extends Recipe
+ */
 interface MealDBRecipe extends Recipe {
+  /** Unique identifier for the recipe (required) */
   id: string;
 }
 
+/**
+ * Fetches recipes based on search query.
+ * @param query - Search term for recipes
+ * @returns Promise containing array of recipes
+ */
 export const searchRecipes = async (query: string): Promise<MealDBRecipe[]> => {
   try {
     const response = await fetch(
@@ -49,6 +76,11 @@ export const searchRecipes = async (query: string): Promise<MealDBRecipe[]> => {
   }
 };
 
+/**
+ * Fetches a specific recipe by ID.
+ * @param id - Recipe identifier
+ * @returns Promise containing recipe details
+ */
 export const getRecipeById = async (id: string): Promise<Recipe> => {
   try {
     const response = await fetch(

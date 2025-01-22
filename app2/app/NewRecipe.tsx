@@ -16,15 +16,30 @@ import * as ImagePicker from "expo-image-picker";
 import { useRecipes } from "@/app/context/RecipeContext";
 import { useRouter } from "expo-router";
 
+/**
+ * Screen component for creating new recipes.
+ * Provides form for entering recipe details and image selection.
+ * @module NewRecipe
+ */
 export default function ModalScreen() {
+  /** Router hook for navigation */
   const router = useRouter();
+  /** State for selected image URI */
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  /** State for ingredients list */
   const [ingredients, setIngredients] = useState<string>("");
+  /** State for cooking instructions */
   const [instructions, setInstructions] = useState<string>("");
+  /** State for recipe name */
   const [recipeName, setRecipeName] = useState<string>("");
-
+  /** Recipe context hook for adding new recipes */
   const { addRecipe } = useRecipes();
 
+  /**
+   * Handles image selection from device gallery.
+   * Requests permissions and opens image picker.
+   * Updates selectedImage state with chosen image URI.
+   */
   const handleImagePick = async () => {
     const permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -46,6 +61,11 @@ export default function ModalScreen() {
     }
   };
 
+  /**
+   * Formats ingredients input with bullet points.
+   * Adds bullet points to new lines automatically.
+   * @param text - Raw ingredients input
+   */
   const handleIngredientsChange = (text: string) => {
     // check if the input text contains newline characters
     const updatedText = text
@@ -65,6 +85,11 @@ export default function ModalScreen() {
     setIngredients(updatedText);
   };
 
+  /**
+   * Formats instructions input with numbering.
+   * Adds sequential numbers to new lines automatically.
+   * @param text - Raw instructions input
+   */
   const handleInstructionsChange = (text: string) => {
     const updatedText = text
       .split("\n")
@@ -83,6 +108,10 @@ export default function ModalScreen() {
     setInstructions(updatedText);
   };
 
+  /**
+   * Saves the new recipe and navigates back.
+   * Combines all input states into a recipe object.
+   */
   const handleSaveRecipe = () => {
     addRecipe({
       ingredients: ingredients,
@@ -150,6 +179,10 @@ export default function ModalScreen() {
   );
 }
 
+/**
+ * Styles for the new recipe form screen.
+ * @constant styles
+ */
 const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,

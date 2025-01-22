@@ -2,11 +2,28 @@ import React from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import { Recipe } from "@/types/Recipe";
 
+/**
+ * Props for the RecipeContent component.
+ */
 interface RecipeContentProps {
+  /** Recipe object containing all recipe details */
   recipe: Recipe;
-  styles: any; // You can define a proper type for styles
+  /** Styles object for component styling */
+  styles: {
+    container: object;
+    image: object;
+    content: object;
+    title: object;
+    sectionTitle: object;
+    text: object;
+  };
 }
 
+/**
+ * Renders the content of a recipe including image, ingredients, and instructions.
+ * @param props - Component properties
+ * @returns A scrollable view containing recipe details
+ */
 export function RecipeContent({ recipe, styles }: RecipeContentProps) {
   return (
     <ScrollView style={styles.container}>
