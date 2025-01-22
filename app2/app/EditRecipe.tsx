@@ -12,8 +12,9 @@ import {
   useColorScheme,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { useRecipes } from "@/app/context/RecipeContext";
+import { useRecipes } from "./context/RecipeContext";
 import { useLocalSearchParams, useRouter } from "expo-router";
+import { Recipe } from "../types/Recipe";
 
 /**
  * Screen component for editing existing recipes.

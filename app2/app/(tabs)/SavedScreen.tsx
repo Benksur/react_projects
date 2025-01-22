@@ -17,6 +17,7 @@ import { Link, useNavigation } from "expo-router";
 import { useRecipes } from "@/app/context/RecipeContext";
 import { FontAwesome } from "@expo/vector-icons";
 import { useTheme } from "@react-navigation/native";
+import { Recipe } from "../../types/Recipe";
 
 /**
  * Screen component for managing saved recipes.

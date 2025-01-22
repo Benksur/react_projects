@@ -9,11 +9,11 @@ import {
 import { useLocalSearchParams } from "expo-router";
 import { useRecipes } from "@/app/context/RecipeContext";
 import { useNavigation } from "@react-navigation/native";
-import { Recipe } from "@/types/Recipe";
+import { Recipe } from "../types/Recipe";
 import { getRecipeById } from "@/services/mealDbApi";
 import { useTheme } from "@react-navigation/native";
-import { RecipeHeader } from "@/components/recipe/RecipeHeader";
-import { RecipeContent } from "@/components/recipe/RecipeContent";
+import { RecipeHeader } from "../components/recipe/RecipeHeader";
+import { RecipeContent } from "../components/recipe/RecipeContent";
 
 /**
  * Screen component for displaying recipes from the API.

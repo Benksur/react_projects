@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useRecipes } from "@/app/context/RecipeContext";
+import { Recipe } from "../types/Recipe";
 import { useRouter } from "expo-router";
 
 /**

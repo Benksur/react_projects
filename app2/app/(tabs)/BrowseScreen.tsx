@@ -10,10 +10,10 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Text, View } from "@/components/Themed";
-import RecipeCard from "@/components/RecipeCard";
+import RecipeCard from "../../components/RecipeCard";
 import { Link } from "expo-router";
 import { searchRecipes } from "@/services/mealDbApi";
-import { Recipe } from "@/types/Recipe";
+import { Recipe } from "../../types/Recipe";
 
 /**
  * Interface for recipe data from MealDB API.
