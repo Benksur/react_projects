@@ -59,7 +59,10 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: "Back" }} />
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerShown: false, title: "Back" }}
+        />
         <Stack.Screen
           name="NewRecipe"
           options={{ presentation: "modal", title: "New Recipe" }}
@@ -68,6 +71,11 @@ function RootLayoutNav() {
           name="RecipeDetails"
           options={{ title: "Recipe Details" }}
         />
+        <Stack.Screen
+          name="RecipeDisplay"
+          options={{ title: "Recipe Display" }}
+        />
+        <Stack.Screen name="EditRecipe" options={{ title: "Edit Recipe" }} />
       </Stack>
     </ThemeProvider>
   );
