@@ -2,7 +2,9 @@
 
 A React Native mobile application for managing, browsing, and saving recipes. Features both light and dark mode support with a modern, intuitive interface.
 
-![App Screenshot Placeholder]
+![ScreenRecording_01-22-2025 16-13-55_1](https://github.com/user-attachments/assets/1817d052-e7de-48e1-82c2-2d73077f73d8)
+
+
 
 ## Features
 
