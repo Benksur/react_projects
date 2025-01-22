@@ -10,6 +10,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { useColorScheme } from "@/components/useColorScheme";
+import { RecipeProvider } from "@/app/context/RecipeContext";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -45,7 +46,11 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <RecipeProvider>
+      <RootLayoutNav />
+    </RecipeProvider>
+  );
 }
 
 function RootLayoutNav() {
@@ -54,10 +59,14 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: "Back" }} />
         <Stack.Screen
-          name="modal"
-          options={{ presentation: "modal", title: "Add Recipe" }}
+          name="NewRecipe"
+          options={{ presentation: "modal", title: "New Recipe" }}
+        />
+        <Stack.Screen
+          name="RecipeDetails"
+          options={{ title: "Recipe Details" }}
         />
       </Stack>
     </ThemeProvider>

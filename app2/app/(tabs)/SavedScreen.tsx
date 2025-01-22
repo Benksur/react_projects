@@ -13,10 +13,12 @@ import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
 import RecipeCard from "@/components/RecipeCard";
 import { Link } from "expo-router";
+import { useRecipes } from "@/app/context/RecipeContext";
 
 export default function TabOneScreen() {
   const colorScheme = useColorScheme();
   const styles = colorScheme === "dark" ? darkStyles : lightStyles;
+  const { recipes } = useRecipes();
 
   const [task, setTask] = useState<string>("");
   const [taskItems, setTaskItems] = useState<string[]>([]);
@@ -40,14 +42,19 @@ export default function TabOneScreen() {
           <Text style={styles.sectionTitle}>Your Recipes</Text>
 
           <View style={styles.items}>
-            {taskItems.map((item, index) => (
-              <TouchableOpacity
-                key={index} // Unique key using the index
-                onPress={() => completeTask(index)}
-                style={styles.touchableWrapper}
+            {recipes.map((recipe, index) => (
+              <Link
+                key={index}
+                href={{
+                  pathname: "/RecipeDetails",
+                  params: { id: index },
+                }}
+                asChild
               >
-                <RecipeCard text={item} />
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableWrapper}>
+                  <RecipeCard recipe={recipe} />
+                </TouchableOpacity>
+              </Link>
             ))}
           </View>
         </View>
@@ -65,8 +72,8 @@ export default function TabOneScreen() {
           onChangeText={(text) => setTask(text)}
         />
 
-        <Link href="/modal" asChild>
-          <TouchableOpacity onPress={() => handleAddTask()}>
+        <Link href="/NewRecipe" asChild>
+          <TouchableOpacity>
             <View style={styles.addWrapper}>
               <Text style={styles.addText}>+</Text>
             </View>

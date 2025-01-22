@@ -10,14 +10,20 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Keyboard,
-  View
+  View,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import { useRecipes } from "@/app/context/RecipeContext";
+import { useRouter } from "expo-router";
 
 export default function ModalScreen() {
+  const router = useRouter();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [ingredients, setIngredients] = useState<string>("");
   const [instructions, setInstructions] = useState<string>("");
+  const [recipeName, setRecipeName] = useState<string>("");
+
+  const { addRecipe } = useRecipes();
 
   const handleImagePick = async () => {
     const permissionResult =
@@ -41,7 +47,7 @@ export default function ModalScreen() {
   };
 
   const handleIngredientsChange = (text: string) => {
-    // Check if the input text contains newline characters
+    // check if the input text contains newline characters
     const updatedText = text
       .split("\n")
       .map((line, index) => {
@@ -78,11 +84,13 @@ export default function ModalScreen() {
   };
 
   const handleSaveRecipe = () => {
-    navigation.navigate("TabOneScreen", {
+    addRecipe({
       ingredients: ingredients,
       instructions: instructions,
       selectedImage: selectedImage,
+      name: recipeName,
     });
+    router.back();
   };
 
   return (
@@ -91,7 +99,12 @@ export default function ModalScreen() {
       keyboardVerticalOffset={100}
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <TextInput style={styles.input} placeholder={"Recipe Name"} />
+        <TextInput
+          style={styles.input}
+          placeholder={"Recipe Name"}
+          value={recipeName}
+          onChangeText={setRecipeName}
+        />
 
         <TouchableOpacity
           style={styles.imageUploadArea}

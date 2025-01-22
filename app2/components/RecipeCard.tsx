@@ -1,25 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Text,
   View,
   StyleSheet,
   TouchableOpacity,
   useColorScheme,
+  Image,
 } from "react-native";
+import { Recipe } from "../types/Recipe";
 
-interface Recipe {
-  text: string;
+interface RecipeCardProps {
+  recipe: Recipe;
 }
 
-export default function RecipeCard(props: Recipe) {
+export default function RecipeCard({ recipe }: RecipeCardProps) {
   const colorScheme = useColorScheme();
   const styles = colorScheme === "dark" ? darkStyles : lightStyles;
 
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <View style={styles.square}></View>
-        <Text style={styles.itemText}>{props.text}</Text>
+        {recipe.selectedImage ? (
+          <Image source={{ uri: recipe.selectedImage }} style={styles.square} />
+        ) : (
+          <View style={styles.square}></View>
+        )}
+        <Text style={styles.itemText}>{recipe.name}</Text>
       </View>
     </View>
   );
@@ -49,22 +55,22 @@ const lightStyles = StyleSheet.create({
     flexWrap: "wrap",
   },
   square: {
-    width: 40,
-    height: 40,
+    width: 60,
+    height: 60,
     borderColor: "#55BCF6",
     borderWidth: 2,
-    opacity: 0.4,
     borderRadius: 15,
     marginRight: 15,
   },
   itemText: {
+    fontSize: 18,
+    fontWeight: "bold",
     maxWidth: "80%",
   },
 });
 
 const darkStyles = StyleSheet.create({
   item: {
-
     borderWidth: 1,
     backgroundColor: "#282828",
     padding: 15,
@@ -73,7 +79,6 @@ const darkStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 20,
-
   },
   itemLeft: {
     flexDirection: "row",
@@ -81,16 +86,17 @@ const darkStyles = StyleSheet.create({
     flexWrap: "wrap",
   },
   square: {
-    width: 40,
-    height: 40,
+    width: 60,
+    height: 60,
     borderColor: "#55BCF6",
     borderWidth: 2,
-    opacity: 0.4,
     borderRadius: 15,
     marginRight: 15,
   },
   itemText: {
     maxWidth: "80%",
     color: "#FFF",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
