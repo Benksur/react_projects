@@ -23,34 +23,11 @@ A React Native mobile application for managing, browsing, and saving recipes. Fe
 * `Expo Router` for routing
 * `Image Picker` for recipe photos
 
-## Technical Stack
-
-### Core Dependencies
-
 
 ### Development Tools
 * TypeScript for type safety
 * Expo for development and building
-* Jest for testing
 * React Native dotenv for environment variables
-
-## Project Structure
-
-### Key Components
-1. **Screens**
-   * SavedScreen: View and manage saved recipes
-   * BrowseScreen: Search and browse recipes from API
-   * RecipeDetails: View detailed recipe information
-   * NewRecipe: Create new recipes
-   * EditRecipe: Modify existing recipes
-
-2. **Context**
-   * RecipeContext: Global state management for recipes
-
-3. **Components**
-   * RecipeCard: Reusable recipe display component
-   * RecipeHeader: Navigation header with actions
-   * RecipeContent: Detailed recipe view component
 
 ## Getting Started
 
@@ -60,10 +37,8 @@ npx expo install
 2. **Install Dependencies**
 npm install @react-navigation/native @react-navigation/stack expo-font expo-image-picker
 
-
 3. **Start Development Server**
 npx expo start
-
 
 4. **Run on Device**
    * Download Expo Go app
