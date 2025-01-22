@@ -46,3 +46,8 @@ A React Native mobile application for managing, browsing, and saving recipes. Fe
    * Download Expo Go app
    * Scan QR code from terminal
    * Or run on simulator/emulator
+5. **Troubleshooting**
+If stuck on expo screen, run
+`npm uninstall react-native-dotenv`
+then
+`npx expo start -c`
